@@ -29,8 +29,9 @@ public class calculatortest {
         cap.setCapability("udid","R58M829Q3WD");
         cap.setCapability("platformName","Android");
         cap.setCapability("platformVersion","10");
-        cap.setCapability("appPackage","com.sec.android.app.popupcalculator");
-        cap.setCapability("appActivity","com.sec.android.app.popupcalculator.Calculator");
+        cap.setCapability("app","F:\\recharge\\Simpleappiumjava\\apkPath\\app-debug.apk");
+//        cap.setCapability("appPackage","com.example.basicapp");
+        cap.setCapability("appActivity","com.example.basicapp.MainActivity");
 
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         appiumDriver = new AppiumDriver<MobileElement>(url,cap);
