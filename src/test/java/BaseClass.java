@@ -4,26 +4,30 @@ import io.appium.java_client.android.AndroidDriver;
 //import org.asynchttpclient.uri.Uri;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeMethod;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class calculatortest {
+public class BaseClass extends ExtentReportDemo {
 
 //    WebDriver webDriver;
-    static AppiumDriver<MobileElement> appiumDriver;
+    public AndroidDriver<MobileElement> driver;
+    public WebDriverWait wait;
 //    AndroidDriver androidDriver;
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//
+//        try {
+//            openCalclutaor();
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-        try {
-            openCalclutaor();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void openCalclutaor() throws MalformedURLException {
+    @BeforeMethod
+    public void BaseClass() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("deviceName","Galaxy A30");
         cap.setCapability("udid","R58M829Q3WD");
@@ -34,7 +38,8 @@ public class calculatortest {
         cap.setCapability("appActivity","com.example.basicapp.MainActivity");
 
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        appiumDriver = new AppiumDriver<MobileElement>(url,cap);
+        driver = new AndroidDriver<MobileElement>(url, cap);
+        wait = new WebDriverWait(driver, 5);
         System.out.println("app started .....");
     }
 }
